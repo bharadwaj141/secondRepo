@@ -1,0 +1,28 @@
+<aura:component controller ="contactComponentAuraSheet2" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="accList" type="List"/>
+    <aura:attribute name="AccountId" type="String"/>
+    <aura:attribute name="conList" type="List"/>
+    <aura:attribute name="oppList" type="List"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <Lightning:select label="Select a Account" value="{!v.AccountId}" onchange="{!c.AccountChange}">
+        <aura:iteration items="{!v.accList}" var="acc">
+             <option value="{!acc.Id}">{!acc.Name}</option>
+        </aura:iteration>
+    </Lightning:select>
+    
+    <Lightning:select label="Select a Contact">
+       <aura:iteration items="{!v.conList}" var="con">
+          <option value="{!con.Id}">{!con.LastName}</option>
+        </aura:iteration>
+    </Lightning:select>
+    
+    <Lightning:select label="Select a opportunity">
+       <aura:iteration items="{!v.oppList}" var="opp">
+          <option value="{!opp.Id}">{!opp.Name}</option>
+        </aura:iteration>
+    </Lightning:select>
+    
+    
+</aura:component>
