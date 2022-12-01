@@ -1,0 +1,14 @@
+<aura:component controller="contactSignUp" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+        <aura:attribute name="uname" type="string"/>
+        <aura:attribute name="password" type="string"/>
+        
+        <h1>Login Page</h1><br/>
+        
+        <lightning:input label="Username" type="text" value="{!v.uname}" required="true"/>
+        <br/>
+        <lightning:input label="Password" type="password" value="{!v.password}" required="true"/>
+        <br/> <br/>
+        
+        <lightning:button variant="brand" label="Brand" title="Brand action" onclick="{! c.handleClick }" />
+        
+    </aura:component>

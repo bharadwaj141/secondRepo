@@ -1,0 +1,148 @@
+<template>
+    <div class="slds-wrap slds-scrollable_y" style="height: 500px; width:1200px">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered"
+            style="background-color: rgb(203, 243, 233); border: 2px">
+
+            <thead>
+                <tr>
+                    <th>
+                        <div class="slds-align_absolute-center"><b>Name</b></div>
+                    </th>
+                    <th>
+                        <div class="slds-align_absolute-center"><b>Account</b></div>
+                    </th>
+                    <th>
+                        <div class="slds-align_absolute-center"> <b>Close Date</b></div>
+                    </th>
+                    <th>
+
+                        <div class="slds-grid slds-wrap slds-align_absolute-center">
+                            <div class="slds-size_1-of-2">
+                                <b>Stage Name</b>
+                            </div>
+                            <div class="slds-size_1-of-2">
+                                <lightning-button-icon class="slds-float_right slds-m-right_xx-small"
+                                    icon-name="utility:chevrondown" alternative-text="drop" onclick={dropClick}>
+                                </lightning-button-icon>
+                            </div>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="slds-align_absolute-center"><b>Amount</b></div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={alldata} for:item="opp">
+                    <tr key={opp.id} style="color:rgb(6, 6, 17)">
+                        <td>
+                            <b>{opp.Name}</b>
+                        </td>
+                        <td>
+                           <b> {opp.Account.Name}</b>
+                        </td>
+                        <td>
+                            <b> {opp.CloseDate}</b>
+                        </td>
+                        <td>
+                            <b>{opp.StageName}</b>
+                        </td>
+                        <td>
+
+                           <div > <b> {opp.Amount}</b></div>
+                        </td>
+                        <td> 
+                            <lightning-combobox name={opp.Id} label="" placeholder="" variant="label-hidden" value={placevalue} options={combooptions} onchange={handleTypeChange}> </lightning-combobox> 
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+
+        <template if:true={dropclick}>
+
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+
+                <div class="slds-modal__container" style=" width: 200px ; height: 550px;">
+
+                    <div class="slds-modal__content slds-p-around_medium" style="width: 200px; ">
+                        <lightning-input type="checkbox" label="All stages" name="All stages" onchange={checkboxchange}>
+                        </lightning-input>
+
+                        <template if:true={allselect}>
+                            <template for:each={options} for:item="opt">
+                                <lightning-input key={opt} type="checkbox" label={opt} name={opt}
+                                    onchange={checkboxchange} checked></lightning-input>
+                            </template>
+                        </template>
+
+                        <template if:false={allselect}>
+                            <template for:each={options} for:item="opt">
+                                <lightning-input class="selectit" key={opt} type="checkbox" label={opt} name={opt}
+                                    onchange={checkboxchange}></lightning-input>
+                            </template>
+                        </template>
+
+                    </div>
+
+                    <footer class="slds-modal__footer" style="width: 200px">
+                        <lightning-button label="Cancel" class="slds-m-around_xx-small" onclick={Cancel} title="Cancel">
+                        </lightning-button>
+                        <lightning-button label="Ok" class="slds-m-around_xx-small" variant="brand" onclick={Submit} title="OK"></lightning-button>
+                    </footer>
+
+                </div>
+
+            </section>
+
+        </template>
+        <template if:false={dropclick}>
+
+        </template>
+
+        
+        <template if:true={editrow}>
+        <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+
+            <div class="slds-modal__container" style=" width: 600px ; height: 600px ">
+
+                <div class="slds-modal__content slds-p-around_medium" style="width: 600px; height: 600px; border: 2px solid black">
+                
+                    <lightning-record-form record-id={recordId} object-api-name="Opportunity" layout-type="Full"  columns="2"
+                    mode="edit" oncancel={oncancel} onsubmit={onsave}>
+            
+                </lightning-record-form>
+                </div>
+
+            </div>
+
+        </section>
+    </template>
+    <template if:false={editrow}></template>
+
+
+<template if:true={viewdetails}>
+    <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+
+        <div class="slds-modal__container" style=" width: 600px ; height: 600px; padding-top: 100px; ">
+
+            <div class="slds-modal__content slds-p-around_medium" style="width: 600px; height: 600px; border: 2px solid black">
+            
+                <lightning-record-form record-id={recordId} object-api-name="Opportunity" layout-type="Full"  columns="2"
+                mode="view">
+            </lightning-record-form>
+
+            </div>
+            <footer class="slds-modal__footer" style="width: 600px; border: 1px solid black">
+                <lightning-button label="Cancel" class="slds-m-around_xx-small" onclick={backfromView} title="Cancel">
+                </lightning-button>
+            </footer>
+
+        </div>
+
+    </section>
+</template>
+<template if:false={viewdetails}></template>
+
+    </div>
+</template>

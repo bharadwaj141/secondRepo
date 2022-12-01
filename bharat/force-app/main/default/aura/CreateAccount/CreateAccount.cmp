@@ -1,0 +1,34 @@
+<aura:component controller="accountCreate">
+    
+    <!--
+    <aura:attribute name="accList" type="Account" default="{'sObjectType':'Account'}"/>
+    <lightning:input label ="firstName" value ="{!v.accList.Name}"/>
+    <lightning:input label ="Phone" value ="{!v.accList.Phone}"/>
+    <lightning:button label= "Submit" onclick="{!c.onClick}"/>
+       -->
+    <!--  <aura:attribute name="accList" type="list" />
+    <div>    
+    <lightning:Select label ="choose">
+       <aura:iteration items="{!v.accList}" var="acc">
+          <option value ="{!acc.Id}">{!acc.Name}</option>
+        </aura:iteration>
+    </lightning:Select>
+        <lightning:button label ="Submit" onclick="{!c.onClick}"/>
+    </div>     
+              -->
+    <aura:attribute name="name" type="String"/>
+    <aura:attribute name="name1" type="String"/>
+    <aura:attribute name="phone1" type="String"/>
+    <aura:attribute name="phone" type="String"/>
+    
+    <lightning:input label="Name" type="text" value="{!v.name}" />
+    <lightning:input label="Phone" type="phone" value="{!v.phone}" />
+    
+    <lightning:Button label="Submit" onclick="{!c.onClick}" />
+    <br/>
+    {!v.name}<br/>
+    Name: {!v.name1}<br/>
+    Phone:{!v.phone1}    
+    
+    
+</aura:component>

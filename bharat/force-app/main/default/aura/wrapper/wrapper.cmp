@@ -1,0 +1,6 @@
+<aura:component >
+	<aura:attribute name="userData" type="WrapperClassAura.WrapperTest"/>
+        <aura:handler name="init" value="{!this}" action= "{!c.doinit}"/>
+        <h1>name:{!v.userData.name}</h1>
+        <h1>Age:{!v.userData.age}</h1>
+</aura:component>

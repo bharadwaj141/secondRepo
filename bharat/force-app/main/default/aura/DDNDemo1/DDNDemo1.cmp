@@ -1,0 +1,8 @@
+<aura:component  >
+    <aura:Attribute name="newAcc" type="Account" default="{'sobjectType':'Account','Name':'TestAcc1'}"/>
+    <aura:Attribute name="cityNames" type="String[]" default="['DEHRADUN','DELHI','NOIDA']"/>
+ 
+	<h1> Component Attribute's:{!v.newAcc.Name}</h1>
+    <h1> City Name:{!v.cityNames[0]}---{!v.cityNames[1]}</h1>
+    
+</aura:component>

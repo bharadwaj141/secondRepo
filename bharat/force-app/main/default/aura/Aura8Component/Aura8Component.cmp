@@ -1,0 +1,19 @@
+<aura:component controller="Aura8Sheet" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	
+    <aura:attribute name="accList" type="List" />
+    <aura:attribute name="conList" type="contact" default="{'sobjectType':'contact'}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <lightning:input label="LastName" value="{!v.conList.LastName}" />
+    
+    <lightning:select label="Choose Account" value="{!v.conList.AccountId}" >
+        <option value="">Choose Account</option>
+    <aura:iteration items="{!v.accList}" var="acc" >
+      <option value="{!acc.Id}">{!acc.Name}</option>
+    </aura:iteration>
+    </lightning:select>
+    
+    <lightning:button label="Create contact" variant="brand" onclick="{!c.onClick}" />
+    
+    
+</aura:component>

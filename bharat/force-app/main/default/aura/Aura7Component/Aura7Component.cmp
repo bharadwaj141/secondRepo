@@ -1,0 +1,34 @@
+<aura:component controller="AuraSheet7" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+	
+    <aura:attribute name="accList" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <div style="height: 900px; border:1px solid;"><br/>
+    <table >
+        <tr>
+            <th>Name</th>
+            <th>AccountSource</th>
+            <th>AnnualRevenue</th>
+            <th>Industry</th>
+        </tr><br/>
+      <aura:iteration items="{!v.accList}" var="acc" >
+           <tr>
+               <td>{!acc.Name}</td>
+               <td>{!acc.AccountSource}</td>
+               <td>{!acc.AnnualRevenue}</td>
+               <td>{!acc.Industry}</td>
+            </tr>
+          <br/>
+      </aura:iteration>
+    </table>
+    </div>
+    
+
+    
+</aura:component>
+<!--
+       <h4>Name:{!acc.Name}</h4>
+      <h4>AccountSource:{!acc.AccountSource}</h4>
+      <h4>AnnualRevenue:{!acc.AnnualRevenue}</h4>
+        <h4>Industry:{!acc.Industry}</h4><br/>
+
+  -->

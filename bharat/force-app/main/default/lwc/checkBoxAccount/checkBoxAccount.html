@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="CheckBox Show">
+        <template if:true={showAccount}>
+            <template for:each={accList} for:item="acc" >
+                <p key={acc.id}>{acc.Name}</p>
+            </template>
+        </template>
+        <lightning-input type="checkbox" label="click Me" checked={showAccount} onchange={handleclick} ></lightning-input>
+
+       
+    </lightning-card>
+    
+</template>

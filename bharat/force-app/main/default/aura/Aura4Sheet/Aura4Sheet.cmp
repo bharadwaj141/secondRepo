@@ -1,0 +1,21 @@
+<aura:component controller="auraSheetQ4" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <aura:attribute name="objName" type="List" />
+    <aura:attribute name="fieldName" type="List" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <lightning:select name="select1" label="sobjects" aura:id="objId" onchange="{!c.getDetails}">
+        <aura:iteration items="{!v.objName}" var="a" >
+            <option value="{!a}">{!a}</option>
+        </aura:iteration>
+    </lightning:select>
+    <br></br>
+    
+    <lightning:select name="select2" label="field" >
+        <aura:iteration items="{!v.fieldName}" var="a1" >
+            <option value="{!a1.Id}">{!a1}</option>
+        </aura:iteration>
+    </lightning:select>
+    
+    
+</aura:component>

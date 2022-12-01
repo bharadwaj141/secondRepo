@@ -1,0 +1,7 @@
+<aura:component controller="contactComponentAuraSheet2" implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="Updatedate" type="string"/>
+    
+    <lightning:input label="CloseDate" type="Date" format="yyyy-mm-dd" value="{!v.Updatedate}"/>
+        <lightning:Button label="Update Opportunity" onclick='{!c.doInit}' />
+
+</aura:component>

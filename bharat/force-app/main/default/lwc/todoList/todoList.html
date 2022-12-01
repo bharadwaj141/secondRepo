@@ -1,0 +1,37 @@
+<template>
+    <lightning-card  title="To Do List" >
+        <lightning-button-icon slot="actions" icon-name="utility:sync"  alternative-text="Sync" title="Sync"  >
+        </lightning-button-icon>
+
+        <lightning-layout>
+            <lightning-layout-item padding="around-small">
+               <ul class="slds-has-dividers_around-space">
+                  <template for:each={todoTask} for:item="todo">
+                      <li class="slds-items" key={todo.Id}>
+                            <lightning-layout vertical-align="center" horizontal-align="spread">
+                                <lightning-layout-item padding="horizontal-small">
+                                    {todo.name}
+                                </lightning-layout-item>
+                                <lightning-layout-item padding="horizontal-small">
+                                  <lightning-button-icon icon-name="utility:delete" alternative-text="Delete" onclick={deleteTask}  class="slds-m-left_xx-small" title="Delete"></lightning-button-icon>
+                                </lightning-layout-item>
+                            </lightning-layout>
+                        </li>
+                    </template>
+                </ul>
+            </lightning-layout-item>
+        </lightning-layout>
+          
+        <p slot="footer">
+            <lightning-layout  vertical-align="center">
+                <lightning-layout-item  flexibility="auto" padding="around-small">
+                    <lightning-input type="text" label="Enter some text" onchange={ChangeValue}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item  flexibility="auto" padding="around-small" >
+                   <lightning-button  label="Add" title="Primary action" onclick={handleClick} ></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+        </p>
+        
+    </lightning-card>
+</template>

@@ -1,0 +1,43 @@
+<aura:component  controller='AuraSheet1'>
+	<aura:attribute name="name" type="String"/>
+  <aura:attribute name="type" type="String"/>
+  <aura:attribute name="annualRevenue" type="Currency"/>
+    <aura:attribute name="options" type="list" default="[
+                {'label': 'Prospect', 'value': 'Prospect'},
+                {'label': 'Customer - Direct', 'value': 'Customer - Direct'},
+                {'label': 'Customer - Channel', 'value': 'Customer - Channel'},
+                {'label': 'Channel Partner / Reseller', 'value': 'Channel Partner / Reseller'},
+                {'label': 'Installation Partner', 'value': 'Installation Partner'},
+                {'label': 'Technology Partner', 'value': 'Technology Partner'},
+                {'label': 'Other', 'value': 'Other'}  
+                                                        ]" />
+                    
+                    <lightning:input name="Name"
+                         value="{!v.name}" 
+                         label="Name" 
+                         maxlength="255"/>
+        
+        <lightning:combobox name="Status" 
+                            label="Status" 
+                            value="inProgress" 
+                            options="{!v.options}" 
+                            onchange="{!c.handleChange}"/>
+        
+        <lightning:input type="number" 
+                         name="Annual Revenue"
+                         label="Annual Revenue" 
+                         value="{!v.annualRevenue}" 
+                         formatter="currency"
+                         fieldLevelHelp="Please enter in numbers"/>
+    
+      <lightning:button variant="Brand" 
+                          label="Save" 
+                          title="Save" 
+                          onclick="{!c.save}"/>
+        <lightning:button variant="Neutral" 
+                          label="Cancel" 
+                          title="Cancel" 
+                          onclick="{!c.cancel}"/>
+        
+    
+</aura:component>

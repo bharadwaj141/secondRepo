@@ -1,0 +1,5 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    <h1> This is Demo Aura Component for Training.</h1>
+    <p><b>Hii Bharat What's up</b></p>
+	
+</aura:component>

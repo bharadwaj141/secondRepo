@@ -1,0 +1,6 @@
+<aura:component >
+    <aura:attribute name="jsobject" type="object"/>
+        <aura:handler name="init" value="{!this}" action= "{!c.doinit}"/>
+        <h1>name:{!v.jsobject.name}</h1>
+        <h1>Age:{!v.jsobject.age}</h1>
+</aura:component>

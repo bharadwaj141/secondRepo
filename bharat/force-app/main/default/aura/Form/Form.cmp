@@ -1,0 +1,23 @@
+<aura:component >
+    <aura:attribute name="input1" type = "String" /><br/>
+    <aura:attribute name="input2" type = "String" /><br/>
+    <aura:attribute name="input3" type = "String" /><br/>
+    <aura:attribute name="input4" type = "integer" /><br/>
+    <aura:attribute name="input6" type = "integer" /><br/>
+    <aura:attribute name="input7" type = "Address" /><br/>
+    
+    
+    <lightning:input  label="First Name"  value="{!v.input1}"/><br/>
+    <lightning:input  label="Last Name" value="{!v.input2}"/><br/>
+    <lightning:input  label="Father Name" value="{!v.input3}" /><br/>
+    <lightning:input  label="Age"  value="{!v.input4}"/><br/>
+    <lightning:input  label="male"   type="Radio"/><br/>
+    <lightning:input  label="Female"   type="Radio"/><br/>
+    <lightning:input  label="Grade" value="{!v.input6}" /><br/>
+    <lightning:inputAddress addressLabel="Address" required="true" value="{!v.input7}" /><br/>
+    <lightning:input  label="is Eligible" type="checkbox"/><br/>
+    <br/>
+    <lightning:button variant="base" label="Submit"  onclick="{! c.handleClick }"/>
+    <br/>
+    input1 = {!v.input1}
+</aura:component>

@@ -1,0 +1,13 @@
+<template>
+    <lightning-card>
+        <lightning-input type="text" name="firstname" label="firstName" onchange={handleclick}></lightning-input>
+        <lightning-input type="text" name="lastname" label="lastName" onchange={handleclick}></lightning-input>
+     
+     </lightning-card>
+
+     <lightning-card title="My Second Print">
+        <b>firstName:{fullName.firstname}</b><br/>
+        <b>lastName:{fullName.lastname}</b>
+     </lightning-card>
+      
+</template>
